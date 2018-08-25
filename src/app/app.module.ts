@@ -16,7 +16,13 @@ import { UserComponent } from './user/user.component';
     UserComponent,
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, RouterModule, FormsModule, AppRoutingModule, CommonModule, HttpClientModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule,
+    FormsModule,
+    AppRoutingModule,
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
