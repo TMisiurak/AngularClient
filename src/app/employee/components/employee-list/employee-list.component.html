@@ -1,9 +1,44 @@
 <p>
   employee-list works!
 </p>
-<div *ngFor="let e of employees">
+<!-- <div *ngFor="let e of employees">
   <a [routerLink]="['/employee/', e.id]"><p>{{e.firstName}}</p></a>
-  <!-- <p>{{e.firstName}}</p> -->
+  <p>{{e.firstName}}</p>
   <p>{{e.lastName}}</p>
   <p>______________</p>
+</div> -->
+<div class="mat-elevation-z8">
+    <!-- <div class="example-header">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+    </div> -->
+
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let e">{{e.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let e">{{e.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let e">{{e.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfBirth">
+      <th mat-header-cell *matHeaderCellDef> Date Of Birth </th>
+      <td mat-cell *matCellDef="let e">{{e.dateOfBirth | date}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 15]" [showFirstLastButtons]="true">
+  </mat-paginator>
 </div>

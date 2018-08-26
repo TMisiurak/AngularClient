@@ -7,8 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 
-import { EmployeeModule } from './employee/employee.module';
+import 'hammerjs';
+
 import { SharedModule } from './shared/shared.module';
+import { NgmaterialModule } from './shared/ngmaterial/ngmaterial.module';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -26,8 +28,8 @@ import { UserComponent } from './user/user.component';
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
-    // EmployeeModule,
-    SharedModule
+    SharedModule,
+    NgmaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
