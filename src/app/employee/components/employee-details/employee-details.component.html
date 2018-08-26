@@ -1,9 +1,26 @@
-<p>
-  employee-details works!
-</p>
-&nbsp;
-<a routerLink="/employee/list"><p>Back to Employee list</p></a>
-&nbsp;
-<p>{{employee.firstName}}</p>
-<p>{{employee.lastName}}</p>
-<p>{{employee.dateOfBirth}}</p>
+<div class="employee-card">
+  <mat-card>
+    <mat-card-header>
+        <div mat-card-avatar class="employee-avatar-icon">
+          <i class="material-icons">
+            account_circle
+            </i></div>
+        <mat-card-title>
+          {{employee.firstName}}&nbsp;{{employee.lastName}}
+        </mat-card-title>
+        <mat-card-subtitle>{{employee.positionId}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" routerLink="/employee/list">Back to Employees list</button>
+        <button mat-stroked-button color="primary" class="align-to-right">Update</button>
+        <button mat-raised-button color="warn">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

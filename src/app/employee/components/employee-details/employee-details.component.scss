@@ -1,0 +1,25 @@
+.employee-card {
+    max-width: 50em;
+    margin: auto;
+}
+
+// .employee-avatar-icon {
+//     height: 3em;
+//     width: 3em;
+// }
+
+mat-card-title {
+    size: 5em;
+}
+
+mat-card-content {
+    padding: 2em 2em 2em 2em;
+}
+
+mat-card-actions {
+    display: flex;
+}
+
+.align-to-right {
+    margin-left: auto;
+}
