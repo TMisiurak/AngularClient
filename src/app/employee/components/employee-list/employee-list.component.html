@@ -1,0 +1,9 @@
+<p>
+  employee-list works!
+</p>
+<div *ngFor="let e of employees">
+  <a [routerLink]="['/employee/', e.id]"><p>{{e.firstName}}</p></a>
+  <!-- <p>{{e.firstName}}</p> -->
+  <p>{{e.lastName}}</p>
+  <p>______________</p>
+</div>
