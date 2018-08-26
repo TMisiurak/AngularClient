@@ -12,7 +12,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 export class EmployeeListComponent implements OnInit, OnDestroy {
   private httpSubscription: Subscription;
   public employees: Employee[] = [];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'dateOfBirth'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'dateOfBirth', 'buttons'];
   dataSource: MatTableDataSource<Employee>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
