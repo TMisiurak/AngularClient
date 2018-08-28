@@ -8,18 +8,20 @@
         <mat-card-title>
           {{employee.firstName}}&nbsp;{{employee.lastName}}
         </mat-card-title>
-        <mat-card-subtitle>{{employee.positionId}}</mat-card-subtitle>
+        <mat-card-subtitle>{{employee.position.title}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+        <mat-card>Sex: {{employee.gender.name}}</mat-card>
+        <mat-card>DateOfBirth: {{employee.dateOfBirth | date}}</mat-card>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          The Shiba Gates is the smallest of the six original and distinct spitz breeds of dog from Japan.
           A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
           bred for hunting.
         </p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-stroked-button color="primary" routerLink="/employee/list">Back to Employees list</button>
-        <button mat-stroked-button color="primary" class="align-to-right">Update</button>
+        <button mat-stroked-button color="primary" class="align-to-right" (click)="openDialog(employee)">Update</button>
         <button mat-raised-button color="warn">Delete</button>
       </mat-card-actions>
     </mat-card>

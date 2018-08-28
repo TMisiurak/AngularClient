@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,11 +14,14 @@ import { NgmaterialModule } from './shared/ngmaterial/ngmaterial.module';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
+import { EmployeeDialogComponent } from './employee/components/employee-dialog/employee-dialog.component';
+import { EmployeeModule } from './employee/employee.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    EmployeeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +32,14 @@ import { UserComponent } from './user/user.component';
     CommonModule,
     HttpClientModule,
     SharedModule,
-    NgmaterialModule
+    NgmaterialModule,
+    ReactiveFormsModule,
+    // EmployeeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    EmployeeDialogComponent
+  ]
 })
 export class AppModule { }

@@ -23,6 +23,10 @@ export class ApiService {
   }
 
   // Put is used both for POST and PUT actions
+  post(url: string, body: any) {
+    return this.http.post<any>(this.apiUrl + url, JSON.stringify(body), httpOptions);
+  }
+
   put(url: string, body: any) {
     return this.http.put<any>(this.apiUrl + url, JSON.stringify(body), httpOptions);
   }

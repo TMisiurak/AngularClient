@@ -21,7 +21,7 @@ export class EmployeeHttpService {
   }
 
   create(employee: any): Observable<any> {
-    return this.http.put(url, employee);
+    return this.http.post(url, employee);
   }
 
   update(employee: any): Observable<any> {

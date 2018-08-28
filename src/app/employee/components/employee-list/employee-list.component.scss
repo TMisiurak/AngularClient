@@ -1,3 +1,26 @@
 table {
     width: 100%;
 }
+
+.employee-list {
+    width: 90%;
+    margin: auto;
+}
+
+.title-card {
+    display: flex;
+    p {
+        height: 1em;;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0.5em;
+    }
+}
+
+.add-employee-button {
+    margin-left: auto;
+}
+
+.align-right {
+    margin-left: auto;
+}

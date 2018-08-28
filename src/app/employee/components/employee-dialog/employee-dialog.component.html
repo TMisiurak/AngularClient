@@ -1,0 +1,84 @@
+<mat-toolbar mat-dialog-title>
+    <mat-toolbar-row>
+        <span>{{isUpdating ? 'Updating employee' : 'Add New Employee'}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div *ngIf="!done">
+  <form #f="ngForm" (ngSubmit)="submit(f, employee)" novalidate>
+  <mat-dialog-content class="form-dialog">
+    <mat-form-field class="form-field-dialog">
+      <input matInput placeholder="Employee First Name" #firstName name="firstName" maxlength="50" [(ngModel)]="employee.firstName" [formControl]="firstNameFormControl">
+      <mat-hint align="end">{{firstName.value.length}} / 50</mat-hint>
+      <mat-error *ngIf="firstNameFormControl.hasError('required')">
+        First Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-dialog">
+      <input matInput placeholder="Employee Last Name" #lastName name="lastName" maxlength="50" [(ngModel)]="employee.lastName" [formControl]="lastNameFormControl">
+      <mat-hint align="end">{{lastName.value.length}} / 50</mat-hint>
+      <mat-error *ngIf="lastNameFormControl.hasError('required')">
+        Last Name is required
+      </mat-error>
+    </mat-form-field>
+      <br>
+
+    <!-- <mat-radio-group class="radio-group" name="employeeGender" [(ngModel)]="employee.gender.title">
+      <br>
+      <mat-radio-button class="radio-button" value="male" (click)="setGender()">
+          Male
+      </mat-radio-button>
+      &nbsp;
+      <mat-radio-button class="radio-button" value="female">
+          Female
+      </mat-radio-button>
+      <br>
+    </mat-radio-group> -->
+    <mat-form-field>
+      <mat-select placeholder="Choose sex" [formControl]="genderFormControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let gender of genders | keyvalue" [value]="gender.value" (click)="setGender(gender.key)">
+          {{gender.value}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="genderFormControl.hasError('required')">Please choose sex</mat-error>
+      <mat-hint>{{genderFormControl.value?.sound}}</mat-hint>
+    </mat-form-field>
+
+  <mat-form-field class="form-field-dialog">
+      <input matInput [matDatepicker]="picker" name="dateOfBirth" [min]="minDate" [max]="maxDate" placeholder="Date Of Birth" [(ngModel)]="employee.dateOfBirth" [formControl]="dateOfBirthFormControl">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="multi-year" [startAt]="startDate"></mat-datepicker>
+      <mat-error>
+          This field is required
+      </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="form-field-dialog">
+      <input type="text" placeholder="Position" #position matInput [matAutocomplete]="autoPosition"
+      name="position"
+      [(ngModel)]="employee.position.title">
+      <mat-error>
+          Position field is required
+      </mat-error>
+      <mat-hint align="end">{{position.value.length}} / 50</mat-hint>
+      <mat-autocomplete #autoPosition="matAutocomplete">
+          <mat-option *ngFor="let position of positions" [value]="position.title" (click)="setPosition(position.id)">
+              {{ position.title }}
+          </mat-option>
+      </mat-autocomplete>
+  </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+      <button type="button" class="mat-raised-button" (click)="close()">Close</button>
+      <button type="submit" [disabled]="loading" class="mat-raised-button mat-primary">Save</button>
+  </mat-dialog-actions>
+  <br>
+  <div *ngIf="loading">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  </form>
+</div>

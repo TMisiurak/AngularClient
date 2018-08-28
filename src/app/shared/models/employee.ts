@@ -1,10 +1,19 @@
+import { Position } from './position';
+import { Gender } from './gender';
+
 export class Employee {
     id: number;
     firstName: string;
     lastName: string;
-    DateOfBirth: Date;
-    GenderId: number;
-    PositionId: number;
-    CreatedAt: Date;
-    IsDeleted: boolean;
+    dateOfBirth: Date;
+    genderId: number;
+    positionId: number;
+    createdAt: Date;
+    position: Position;
+    gender: Gender;
+
+    constructor() {
+        this.position = new Position();
+        this.gender = new Gender();
+    }
 }

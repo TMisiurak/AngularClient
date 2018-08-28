@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 import { Employee } from '../../../shared/models/employee';
 import { EmployeeHttpService } from '../../../services/employee-http.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
+import { EmployeeDialogComponent } from '../employee-dialog/employee-dialog.component';
 
 @Component({
   selector: 'app-employee-details',
@@ -15,13 +17,26 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private employeeHttpService: EmployeeHttpService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.getEmployeeById(params['id']);
     });
+  }
+
+  openDialog(employee: Employee) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.height = 'auto';
+    dialogConfig.width = '400px';
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = employee;
+
+    this.dialog.open(EmployeeDialogComponent, dialogConfig);
   }
 
   getEmployeeById(id: number) {
