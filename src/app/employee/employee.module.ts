@@ -8,8 +8,6 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgmaterialModule } from '../shared/ngmaterial/ngmaterial.module';
-import { EmployeeDialogComponent } from './components/employee-dialog/employee-dialog.component';
-import { DeleteEmployeeDialogComponent } from './components/delete-employee-dialog/delete-employee-dialog.component';
 
 @NgModule({
   imports: [
@@ -21,8 +19,7 @@ import { DeleteEmployeeDialogComponent } from './components/delete-employee-dial
   declarations: [
     EmployeeComponent,
     EmployeeListComponent,
-    EmployeeDetailsComponent,
-    // EmployeeDialogComponent
+    EmployeeDetailsComponent
   ],
   exports: [
     EmployeeListComponent,
