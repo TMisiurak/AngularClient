@@ -5,7 +5,7 @@ import { MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardM
   MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule,
   MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
   MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
-  MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule } from '@angular/material';
+  MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MAT_DATE_LOCALE } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -25,6 +25,9 @@ import { MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardM
     MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule,
     MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
     MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'en-US'}
   ]
 })
 export class NgmaterialModule { }
