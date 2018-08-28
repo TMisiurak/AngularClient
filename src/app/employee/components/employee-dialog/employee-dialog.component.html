@@ -24,22 +24,11 @@
     </mat-form-field>
       <br>
 
-    <!-- <mat-radio-group class="radio-group" name="employeeGender" [(ngModel)]="employee.gender.title">
-      <br>
-      <mat-radio-button class="radio-button" value="male" (click)="setGender()">
-          Male
-      </mat-radio-button>
-      &nbsp;
-      <mat-radio-button class="radio-button" value="female">
-          Female
-      </mat-radio-button>
-      <br>
-    </mat-radio-group> -->
     <mat-form-field>
-      <mat-select placeholder="Choose sex" [formControl]="genderFormControl" required>
+      <mat-select placeholder="Choose sex" name="employeeGender" [formControl]="genderFormControl" required [(ngModel)]="employee.gender.name">
         <mat-option>--</mat-option>
-        <mat-option *ngFor="let gender of genders | keyvalue" [value]="gender.value" (click)="setGender(gender.key)">
-          {{gender.value}}
+        <mat-option *ngFor="let gender of genders" [value]="gender.name" (click)="setGender(gender.id)">
+          {{gender.name}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="genderFormControl.hasError('required')">Please choose sex</mat-error>

@@ -5,6 +5,7 @@ import { EmployeeHttpService } from '../../../services/employee-http.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
 import { EmployeeDialogComponent } from '../employee-dialog/employee-dialog.component';
+import { DeleteEmployeeDialogComponent } from '../delete-employee-dialog/delete-employee-dialog.component';
 
 @Component({
   selector: 'app-employee-details',
@@ -37,6 +38,17 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
     dialogConfig.data = employee;
 
     this.dialog.open(EmployeeDialogComponent, dialogConfig);
+  }
+
+  openDeleteDialog(employee: Employee): void {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.height = 'auto';
+    dialogConfig.width = 'auto';
+    dialogConfig.disableClose = true;
+    dialogConfig.data = employee;
+
+    this.dialog.open(DeleteEmployeeDialogComponent, dialogConfig);
   }
 
   getEmployeeById(id: number) {

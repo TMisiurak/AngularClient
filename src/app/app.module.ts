@@ -15,13 +15,14 @@ import { NgmaterialModule } from './shared/ngmaterial/ngmaterial.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { EmployeeDialogComponent } from './employee/components/employee-dialog/employee-dialog.component';
-import { EmployeeModule } from './employee/employee.module';
+import { DeleteEmployeeDialogComponent } from './employee/components/delete-employee-dialog/delete-employee-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    EmployeeDialogComponent
+    EmployeeDialogComponent,
+    DeleteEmployeeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ import { EmployeeModule } from './employee/employee.module';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    EmployeeDialogComponent
+    EmployeeDialogComponent,
+    DeleteEmployeeDialogComponent
   ]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { EmployeeDetailsComponent } from './components/employee-details/employee
 import { SharedModule } from '../shared/shared.module';
 import { NgmaterialModule } from '../shared/ngmaterial/ngmaterial.module';
 import { EmployeeDialogComponent } from './components/employee-dialog/employee-dialog.component';
+import { DeleteEmployeeDialogComponent } from './components/delete-employee-dialog/delete-employee-dialog.component';
 
 @NgModule({
   imports: [

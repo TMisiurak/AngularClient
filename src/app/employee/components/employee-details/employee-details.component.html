@@ -13,16 +13,26 @@
       <mat-card-content>
         <mat-card>Sex: {{employee.gender.name}}</mat-card>
         <mat-card>DateOfBirth: {{employee.dateOfBirth | date}}</mat-card>
-        <p>
-          The Shiba Gates is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
+        <br>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{employee.position.title}} Position
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click to {{panelOpenState ? 'close' : 'open'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>{{employee.position.description}}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
       </mat-card-content>
       <mat-card-actions>
         <button mat-stroked-button color="primary" routerLink="/employee/list">Back to Employees list</button>
         <button mat-stroked-button color="primary" class="align-to-right" (click)="openDialog(employee)">Update</button>
-        <button mat-raised-button color="warn">Delete</button>
+        <button mat-raised-button color="warn" (click)="openDeleteDialog(employee)">Delete</button>
       </mat-card-actions>
     </mat-card>
   </div>

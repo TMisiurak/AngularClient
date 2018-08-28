@@ -6,6 +6,7 @@ import { Subscription, Observable } from 'rxjs';
 import { PositionHttpService } from '../../../services/position-http.service';
 import { EmployeeHttpService } from '../../../services/employee-http.service';
 import { Position } from '../../../shared/models/position';
+import { Gender } from '../../../shared/models/gender';
 
 @Component({
   selector: 'app-employee-dialog',
@@ -15,7 +16,8 @@ import { Position } from '../../../shared/models/position';
 export class EmployeeDialogComponent implements OnInit, OnDestroy {
   employee: Employee = new Employee();
   positions: Position[] = [];
-  genders: {[id: number]: string} = {1: 'Male', 2: 'Female'};
+  // genders: {[id: number]: string} = {1: 'Male', 2: 'Female'};
+  genders: Gender[] = [{id: 1, name: 'Male'}, {id: 2, name: 'Female'}];
   result: Observable<Employee>;
   isUpdating = false;
 
@@ -28,7 +30,6 @@ export class EmployeeDialogComponent implements OnInit, OnDestroy {
   maxDate = new Date(Date.now());
   startDate = new Date(1990, 0, 1);
 
-  private httpEmployeeSubscription: Subscription;
   private httpPositionsSubscription: Subscription;
 
   firstNameFormControl = new FormControl('', [Validators.required]);

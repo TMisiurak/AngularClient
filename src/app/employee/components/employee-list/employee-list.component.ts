@@ -6,6 +6,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogConfig, 
 import { EmployeeDialogComponent } from '../employee-dialog/employee-dialog.component';
 import { Position } from '../../../shared/models/position';
 import { PositionHttpService } from '../../../services/position-http.service';
+import { DeleteEmployeeDialogComponent } from '../delete-employee-dialog/delete-employee-dialog.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,6 +19,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   position: Position = new Position();
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'dateOfBirth', 'position', 'buttons'];
   dataSource: MatTableDataSource<Employee>;
+  isDeleted = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -45,6 +47,21 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
     dialogRef.componentInstance.employeeCreated.subscribe(e => {
       this.employees.push(e);
     });
+  }
+
+  openDeleteDialog(employee: Employee): void {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.height = 'auto';
+    dialogConfig.width = 'auto';
+    dialogConfig.disableClose = true;
+    dialogConfig.data = employee;
+
+    const dialogRef = this.dialog.open(DeleteEmployeeDialogComponent, dialogConfig);
+    if (dialogRef.componentInstance.deleted) {
+      const index = this.employees.indexOf(employee);
+      this.employees.splice(index);
+    }
   }
 
   getEmployees() {
