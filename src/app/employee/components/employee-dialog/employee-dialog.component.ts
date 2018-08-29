@@ -16,7 +16,6 @@ import { Gender } from '../../../shared/models/gender';
 export class EmployeeDialogComponent implements OnInit, OnDestroy {
   employee: Employee = new Employee();
   positions: Position[] = [];
-  // genders: {[id: number]: string} = {1: 'Male', 2: 'Female'};
   genders: Gender[] = [{id: 1, name: 'Male'}, {id: 2, name: 'Female'}];
   result: Observable<Employee>;
   isUpdating = false;

@@ -34,8 +34,7 @@ import { DeleteEmployeeDialogComponent } from './employee/components/delete-empl
     HttpClientModule,
     SharedModule,
     NgmaterialModule,
-    ReactiveFormsModule,
-    // EmployeeModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

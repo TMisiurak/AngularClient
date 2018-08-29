@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
-import { stringify } from '@angular/core/src/util';
+import { Employee } from '../shared/models/employee';
 
 const url = 'api/employees/';
 
@@ -20,8 +20,14 @@ export class EmployeeHttpService {
     return this.http.get(url + id);
   }
 
-  create(employee: any): Observable<any> {
-    return this.http.post(url, employee);
+  create(employee: Employee): Observable<any> {
+    return this.http.post(url, {
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      dateOfBirth: employee.dateOfBirth,
+      genderId: employee.genderId,
+      positionId: employee.positionId
+    });
   }
 
   update(employee: any): Observable<any> {
