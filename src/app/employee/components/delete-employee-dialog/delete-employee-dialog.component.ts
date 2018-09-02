@@ -44,6 +44,8 @@ export class DeleteEmployeeDialogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.dialogRef.close();
-    this.httpSubscription.unsubscribe();
+    if (this.httpSubscription) {
+      this.httpSubscription.unsubscribe();
+    }
   }
 }
